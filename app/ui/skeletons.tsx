@@ -1,3 +1,5 @@
+import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { lusitana } from './fonts';
 // Loading animation
 const shimmer =
   'before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/60 before:to-transparent';
@@ -211,6 +213,70 @@ export function InvoicesTableSkeleton() {
               <TableRowSkeleton />
             </tbody>
           </table>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+export function CustomersTableSkeleton() {
+  return (
+    <div className="w-full">
+      <h1 className={`${lusitana.className} mb-8 text-xl md:text-2xl`}>
+              Customers
+      </h1>
+      <div className="relative flex flex-1 flex-shrink-0">
+          <label htmlFor="search" className="sr-only">
+            Search
+          </label>
+          <input
+            className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+            placeholder={'Search customers...'}
+          />
+          <MagnifyingGlassIcon className="absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+      </div>
+      <div className="mt-6 flow-root">
+        <div className="inline-block min-w-full align-middle">
+          <div className="rounded-lg bg-gray-50 p-2 md:pt-0">
+            <div className="md:hidden">
+              <InvoicesMobileSkeleton />
+              <InvoicesMobileSkeleton />
+              <InvoicesMobileSkeleton />
+              <InvoicesMobileSkeleton />
+              <InvoicesMobileSkeleton />
+              <InvoicesMobileSkeleton />
+            </div>
+            <table className="hidden min-w-full text-gray-900 md:table">
+              <thead className="rounded-lg text-left text-sm font-normal">
+                <tr>
+                  <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
+                    Name
+                  </th>
+                  <th scope="col" className="px-3 py-5 font-medium">
+                    Email
+                  </th>
+                  <th scope="col" className="px-3 py-5 font-medium">
+                    Total Invoices
+                  </th>
+                  <th scope="col" className="px-3 py-5 font-medium">
+                    Total Pending
+                  </th>
+                  <th scope="col" className="px-3 py-5 font-medium">
+                    Total Paid
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="bg-white">
+                <TableRowSkeleton />
+                <TableRowSkeleton />
+                <TableRowSkeleton />
+                <TableRowSkeleton />
+                <TableRowSkeleton />
+                <TableRowSkeleton />
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
