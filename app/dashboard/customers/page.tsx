@@ -1,5 +1,4 @@
 import Pagination from '@/app/ui/invoices/pagination';
-import Search from '@/app/ui/search';
 import Table from '@/app/ui/customers/table';
 import { CreateInvoice } from '@/app/ui/invoices/buttons';
 import { lusitana } from '@/app/ui/fonts';
@@ -23,14 +22,14 @@ export default async function Page(props: {
 }) {
   const searchParams = await props.searchParams;
   const query = searchParams?.query || '';
-  const currentPage = Number(searchParams?.page) || 1;
+  //const currentPage = Number(searchParams?.page) || 1;
   //const totalPages = await fetchFilteredCustomers(query);
 
   const customers = await fetchFilteredCustomers(query)
 
   return (
     <div className="w-full">
-      <Suspense key={query + currentPage} fallback={<CustomersTableSkeleton />}>
+      <Suspense fallback={<CustomersTableSkeleton />}>
         <Table customers={customers} />
       </Suspense>
       <div className="mt-5 flex w-full justify-center">
